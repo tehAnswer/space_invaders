@@ -1,39 +1,101 @@
-# SpaceInvaders
+# space_invaders
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/space_invaders`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'space_invaders'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install space_invaders
+SpaceInvaders is _another_ coding challenge whose main point is to identify well-known text-based shapes, documented down below.
 
 ## Usage
 
-TODO: Write usage instructions here
+To get the program running, two ways are available once the repository's been cloned. The easiest one is to build the image with Docker, which will execute without any further configuration needed.
 
-## Development
+```
+$ docker build .
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+However, by using Docker, you can't modify the input for the program without changing the Dockerfile. In case you would like to try out the code with a different input, let's say a different picture, you can still do it manually following the steps down below:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+$ rvm install ruby-2.5.0 # if missing.
+$ rvm use 2.5.0          # if it's not the default.
+$ bundle install
+$ rake scan[path/to/file]
+```
 
-## Contributing
+## Shapes
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/space_invaders.
+### Predator
 
-## License
+~~~~
+--o-----o--
+---o---o---
+--ooooooo--
+-oo-ooo-oo-
+ooooooooooo
+o-ooooooo-o
+o-o-----o-o
+---oo-oo---
+~~~~
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+### Alien
+~~~~
+---oo---
+--oooo--
+-oooooo-
+oo-oo-oo
+oooooooo
+--o--o--
+-o-oo-o-
+o-o--o-o
+~~~~
+
+### Example radar image:
+~~~~
+----o--oo----o--ooo--ooo---------o---oo-o----oo---o--o---------o----o------o----------------o--o--o-
+--o-o-----oooooooo-oooooo-------o----o------ooo-o---o--o----o------o--o---ooo-----o--oo-o------o----
+--o--------oo-ooo-oo-oo-oo------------------ooooo-----o-----o------o---o--o--o-o-o------o----o-o-o--
+-------o--oooooo--o-oo-o--o-o-----oo--o-o-oo--o-oo-oo-o--------o-----o------o-ooooo---o--o--o-------
+------o---o-ooo-ooo----o------o-------o---oo-ooooo-o------o----o--------o-oo--ooo-oo-------------o-o
+-o--o-----o-o---o-ooooo-o-------o----o---------o-----o-oo-----------oo----ooooooo-ooo-oo------------
+o-------------ooooo-o--o--o--o-------o--o-oo-oo-o-o-o----o-------------o--oooo--ooo-o----o-----o--o-
+--o-------------------------oo---------oo-o-o--ooo----o-----o--o--o----o--o-o-----o-o------o-o------
+-------------------o-----------------o--o---------------o--------o--oo-o-----oo-oo---o--o---o-----oo
+----------o----------o------------------o--o----o--o-o------------oo------o--o-o---o-----o----------
+------o----o-o---o-----o-o---------oo-o--------o---------------------------------o-o-o--o-----------
+---------------o-------------o-------o-------------------o-----o---------o-o-------------o-------oo-
+-o--o-------------o-o--------o--o--oo-------------o----ooo----o-------------o----------oo----o---o-o
+-o--o-------------o----oo------o--o-------o--o-----------o----o-----o--o----o--oo-----------o-------
+-o-----oo-------o------o---------------o--o----------o-----o-------o-----------o---o-o--oooooo-----o
+-o--------o-----o-----o---------oo----oo---o-----------o---o--oooo-oo--o-------o------oo--oo--o-----
+------------o-------------------o----oooo-------------oo-oo-----ooo-oo-----o-------o-oo-oooooooo---o
+-----------------------------------oooooooo---o-----o-------o--oooooo-o------------o-o-ooooooo-o----
+------------o------o-------o-------oo-oo--o--o---------o--o-o-o-ooooo-o--------------oo-o----o-oo-o-
+---o-o----------o--------oo----o----oooooooo-------o----o-o-o-o-----o-o-----o----------ooo-oo--o---o
+-o-o---------o-o---------------o--o--o--ooo---ooo-------o------oo-oo------------o--------o--o-o--o--
+-------oo---------------------------o-oo----------o------o-o-------o-----o----o-----o-oo-o-----o---o
+---o--------o-----o-------o-oo-----oo--oo-o----oo----------o--o---oo------oo----o-----o-------o-----
+---o--ooo-o---------o-o----o------------o---------o----o--o-------o-------------o----------------oo-
+---o------o----------------o----o------o------o---oo-----------o-------------o----------oo---------o
+--oo---------------o--o------o---o-----o--o-------------o------o-------o-----o-----o----o------o--o-
+-o-------o----------o-o-o-------o-----o--o-o-----------o-oo-----------o------o---------o-----o-o----
+----------o----o-------o----o--o------o------------o---o---------------oo----o-----ooo--------------
+----o--------oo----o-o----o--o------ooo----o-oooo---o--o-oo--------o-oo-----o-o---o-o--o-----oo-----
+------o--------o-ooooo----o---o--o-----o---------------o-o-------o-----o----------------------------
+o-------oo----o--oooooo-o---o--o------oooo----------o-oo-------o---o----------o------oo-------------
+-o---o----------o--oo-oo-o---o-----o-o-----------------------oo--o------o------o--------------------
+-----oo-o-o-o---ooooooooo----o----o--------o--o---oo---o------------o----------o-o---o------o-o--oo-
+------o------o---ooo-o---------------------------o--o---o---o----o--o-------o-----o------o----o----o
+-------o----------ooo-o-----o----o---o--o-oo--o--o-o--o------o--o-oo---ooo------------------------o-
+-o-------o------o-o--ooo--o---o---oo-----o----o-------------o----o-ooo-o------o--o-o------o-o-------
+---oo--o---o-o---------o---o--------------o--o-----o-------o-----o--o---o-oo--------o----o----o-----
+o------o----oo-o-----------oo--o---o--------o-o------o-------o-o------o-oo---------o-----oo---------
+----o--o---o-o-----------o---o------------o-------o----o--o--o--o-o---------------o-----------------
+-------oo--o-o-----o-----o----o-o--o----------------------o-------o------o----oo----ooo---------o---
+o-----oo-------------------o--o-----o-----------o------o-------o----o-----------o----------------o--
+--o---o-------o------------o--------------------o----o--o-------------oo---o---------oo--------o----
+--o--------o---------o------------o------o-------o------------o-------o---o---------ooooo-----------
+------o--------------o-o-o---------o---o-------o--o-----o-------o-o----------o-----oo-ooo----------o
+--o---------------o----o--oo-------------o---------o-------------------oo---------oo-o-ooo----------
+-o-----------o------ooo----o----------------ooo-----o--------o--o---o-----------o-o-oooooo--------oo
+-o---o-------o---o-oooo-----o-------------------o----oo-----------------o--o--------o--o------o--o--
+-------o---o------oooooo--o----ooo--o--------o-------o----------------------------oo-oo-o--o--------
+o--oo------o-----oo--o-oo------------oo--o------o--o-------------oo----o------------oooo-o------oo--
+-----o----------ooooooooo--------------oo--------------oo-----o-----o-o--o------o----------o----o---
+~~~~
