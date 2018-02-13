@@ -2,6 +2,8 @@
 
 SpaceInvaders is _another_ coding challenge whose main point is to identify well-known text-based shapes, documented down below.
 
+![DAMN GIF](https://d2ffutrenqvap3.cloudfront.net/items/072I051t00273R3T3421/Screen%20Recording%202018-02-13%20at%2009.13%20PM.gif?v=d4866da9)
+
 ## Usage
 
 To get the program running, two ways are available once the repository's been cloned. The easiest one is to build the image with Docker, which will execute without any further configuration needed.
