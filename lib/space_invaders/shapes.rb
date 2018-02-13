@@ -1,3 +1,5 @@
+# This module contains the shapes to be identified. They have to be exact matches.
+# The different invaders have been named in order to help with the development.
 module SpaceInvaders
   ALIEN = %w(
        ---oo---
