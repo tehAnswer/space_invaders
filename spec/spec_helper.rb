@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start { add_filter '/spec' }
+
 require_relative '../lib/space_invaders'
 require 'pry'
 Dir[File.expand_path('../shared/**/*.rb', __FILE__)].each { |f| require f }
