@@ -1,4 +1,5 @@
-Dir[File.expand_path('../space_invaders/**/*.rb', __FILE__)].each { |f| require f }
+require_relative 'space_invaders/refinements/pattern_matching'
+Dir[File.expand_path('../space_invaders/*.rb', __FILE__)].reverse.each { |f| require f }
 require 'colorize'
 
 module SpaceInvaders
