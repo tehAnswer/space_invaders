@@ -1,5 +1,5 @@
 RSpec.describe SpaceInvaders::Radar do
-  let(:instance) { described_class.new }
+  let(:instance) { described_class }
   let(:board)    { File.readlines(File.expand_path(file_path, __FILE__))  }
   let(:subject)  { instance.scan(board) }
 

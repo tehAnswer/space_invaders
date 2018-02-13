@@ -3,13 +3,12 @@ module SpaceInvaders
   # a board line by line, it returns an array of Areas matching
   # those.
   #
-  # NOTE: This could have been a module with "class" methods.
-  class Radar
+  module Radar
     # NOTE: It adds method indexes to a String which
     # returns all the coincidences for a given subtring.
     using SpaceInvaders::Refinements::PatternMatching
 
-    def scan(board_lines)
+    def self.scan(board_lines)
       board_lines.each_with_index.map do |line, index|
         heads = detect_heads(line, index)
         next if heads.empty?
@@ -19,7 +18,7 @@ module SpaceInvaders
 
     private
 
-    def detect_heads(line, line_num)
+    def self.detect_heads(line, line_num)
       SpaceInvaders::Heads.map do |name, head|
         indexes = line.indexes(head)
         next if indexes.empty?
@@ -29,7 +28,7 @@ module SpaceInvaders
       end.flatten.compact
     end
 
-    def detect_shape(board_lines, character:, line:, shape:)
+    def self.detect_shape(board_lines, character:, line:, shape:)
       invader = SpaceInvaders::Bodies[shape]
       # NOTE: plus one because it's missing the head line.
       height  = invader.length
@@ -39,7 +38,7 @@ module SpaceInvaders
     end
 
 
-    def crop_board(board_lines, height:, width:, line:, character:)
+    def self.crop_board(board_lines, height:, width:, line:, character:)
       board_lines.drop(line + 1).take(height).map { |l| l[character..(character + width - 1)] }
     end
   end
